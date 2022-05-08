@@ -1,0 +1,8 @@
+name: hw7
+dependencies:
+  - python
+  - ipykernel
+  - numpy
+  - scipy
+  - matplotlib
+  - sklearn
