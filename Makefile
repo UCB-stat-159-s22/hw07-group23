@@ -11,4 +11,5 @@ clean:
 .PHONY : all
 all: 
 		jupyter execute income.ipynb
+		jupyter execute eda_gender_explore.ipynb
 		jupyter execute main.ipynb
