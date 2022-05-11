@@ -901,7 +901,7 @@ Name: label, dtype: float64
 </div>
 </div>
 <p>As we can see, there is a roughly, 24:76 split.</p>
-<p>After doing some pre-processing. Including the creation of dummy-variables for all qualitative predictors in the dataset. Five different decision tree models were applied to the dataset to predict income. These models include a naïve, <em>“CART”</em>, decision tree, a bagged decision tree, a bagged decision tree with support-vector-machine model selection, a bagged decision tree with symmetric-uncertainty model selection, and a bagged decision tree with principal component analysis model selection. These model types vary in complexity, but, a best model could be selected out of them all by using 10-fold cross validation.</p>
+<p>After doing some pre-processing. Including the creation of dummy-variables for all qualitative predictors in the dataset. Five different decision tree models were applied to the dataset to predict income. These models include a naïve, <em>“CART”</em>, decision tree; a bagged decision tree; a bagged decision tree with support-vector-machine feature selection; a bagged decision tree with symmetric-uncertainty feature selection; and, a bagged decision tree with principal component analysis feature selection. These model types vary in complexity, but, a best model could be selected out of them all by using 10-fold cross validation. Please refer to <em>income.ipynb</em> for compuatations involved in these steps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
@@ -913,7 +913,7 @@ Name: label, dtype: float64
 <img alt="_images/main_template_47_0.png" src="_images/main_template_47_0.png" />
 </div>
 </div>
-<p>As seen by this barchart- after creating the five, decision tree models. Although only slightly, the best performer- which obtains the highest, 10-fold, cross-validation accuracy. Is the decision tree, with bagging, and support vector machine model selection. More specifically, its accuracy tends closely towards 85%.</p>
+<p>As seen by this barchart- after creating the five, decision tree models. Although only slightly, the best performer- which obtains the highest, 10-fold, cross-validation accuracy. Is the decision tree, with bagging, and support vector machine feature selection. More specifically, its accuracy tends closely towards 85%.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;figures/income_tree.png&#39;</span><span class="p">)</span>
@@ -924,12 +924,13 @@ Name: label, dtype: float64
 <img alt="_images/main_template_49_0.png" src="_images/main_template_49_0.png" />
 </div>
 </div>
-<p>As seen by the above figure, this is what the best, decision tree model for income prediction looks like.</p>
+<p>As seen by the above figure, this is what the best model for income prediction looks like. Again, this is the <em>bagged decision tree with support-vector-machine feature selection</em>. Also, please refer to <em>income.ipynb</em> for compuatations involved in these steps.</p>
 </div>
 <div class="section" id="results-and-limitations">
 <h3>Results and Limitations<a class="headerlink" href="#results-and-limitations" title="Permalink to this headline">¶</a></h3>
 <p>From the gender exploration, we can’t conclude too much predictive nature of the features in our dataset. The accuracy of the model was not impressive, and furthermore we can’t assume it was splitting on anything truly predictive. In general however, there is generally a inequal representation of women in many different factors, such as the income gap. Additionally, our dataset may have been an unreliable source in some ways because of the unequal representation of gender in the data.</p>
 <p>Overall, with gender, there is data suggesting women may be more educated than men in general, yes overall are less likely to make money.</p>
+<p>Now, moving along to our analysis of <em>incomes</em> we have conclude the following. As seen the anaylsis, the best decision tree model is definitely the <em>bagged decision tree with support-vector-machine feature selection</em>. It gives a roughly, 85% accuracy- which in many cases is truly desirable. Nevertheless, despite this accuracy being quite high- it is not great given that the categorical response variable for <em>income</em> is split 76:24. As a result, we have to conclude that decision tree modelling has not been impressive in predicting income levels using the <em>Census Bureau</em> data. At most, it does a <strong>slightly better</strong> job than prediciting everybody will have a less than 50 thousand dollar income. Perhaps a new dataset, or other modelling method may be more insightful.</p>
 </div>
 <div class="section" id="author-contributions">
 <h3>Author Contributions<a class="headerlink" href="#author-contributions" title="Permalink to this headline">¶</a></h3>
