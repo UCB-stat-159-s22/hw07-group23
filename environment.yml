@@ -9,3 +9,5 @@ dependencies:
   - pytest 
   - seaborn
   - sklearn
+  - ITMO_FS
+  - IPython
