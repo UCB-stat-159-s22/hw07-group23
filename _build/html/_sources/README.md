@@ -1,4 +1,4 @@
-## Reproducibility Analysis on Demographics in the United States
+## Reproducibility Analysis on Adult Income in the United States
 
 [![Binder](https://mybinder.org/badge_logo.svg)]()
 
@@ -10,4 +10,3 @@ Our exploration and analysis focused on discovering different relationships amon
 Use the binder link provided or clone the repository to run locally to run this notebook. A list of makefile instructions is provided below: 
 
 ### Makefile Commands
-- `clean`: Removes all figures from the /output directory
