@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reproducibility Analysis on Adult Income in the United States &#8212; STAT 159 Group 23 Book</title>
+    <title>Reproducibility Analysis on Demographics in the United States &#8212; STAT 159 Group 23 Book</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -37,9 +37,12 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -48,10 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="/user/midoripierce//proxy/absolute/8000/README.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Demographics in the United States" href="main_template.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -89,25 +90,12 @@ const thebe_selector_output = ".output, .cell_output"
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
-   Reproducibility Analysis on Adult Income in the United States
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  STAT 159 Group 23 Book
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="main_template.html">
    Demographics in the United States
   </a>
  </li>
 </ul>
-
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -195,7 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Reproducibility Analysis on Adult Income in the United States
+   Reproducibility Analysis on Demographics in the United States
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -220,7 +208,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Reproducibility Analysis on Adult Income in the United States</h1>
+                <h1>Reproducibility Analysis on Demographics in the United States</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -232,7 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Reproducibility Analysis on Adult Income in the United States
+   Reproducibility Analysis on Demographics in the United States
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -256,9 +244,9 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="section" id="reproducibility-analysis-on-adult-income-in-the-united-states">
-<h1>Reproducibility Analysis on Adult Income in the United States<a class="headerlink" href="#reproducibility-analysis-on-adult-income-in-the-united-states" title="Permalink to this headline">¶</a></h1>
-<p><span class="xref myst"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></span></p>
+  <div class="section" id="reproducibility-analysis-on-demographics-in-the-united-states">
+<h1>Reproducibility Analysis on Demographics in the United States<a class="headerlink" href="#reproducibility-analysis-on-demographics-in-the-united-states" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/UCB-stat-159-s22/hw07-group23/HEAD?labpath=main_template.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
 <p><strong>Note:</strong> This repository is public so that Binder can find it. All code and data is based on the original <a class="reference external" href="https://www.kaggle.com/datasets/danielbethell/adult-incomes-in-the-united-states">Kaggle Adult Income in the United States</a>. This repository is a class exercise that focuses on reproducibility of research, as a homework assignment for the <a class="reference external" href="https://ucb-stat-159-s22.github.io">Spring 2022 installment of UC Berkeley’s Stat 159/259 course, <em>Reproducible and Collaborative Data Science</em></a>.</p>
 <p>Our exploration and analysis focused on discovering different relationships amongst demographic information about those residing in the United States in this project.</p>
 </div>
@@ -267,8 +255,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Use the binder link provided or clone the repository to run locally to run this notebook. A list of makefile instructions is provided below:</p>
 <div class="section" id="makefile-commands">
 <h2>Makefile Commands<a class="headerlink" href="#makefile-commands" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="toctree-wrapper compound">
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">all</span></code>: Runs all .ipynb notebooks.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clean</span></code>: Removes all figures from the /output directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">env</span></code>: Creates the environment with all necessary libraries.</p></li>
+</ul>
 </div>
 </div>
 
@@ -297,13 +288,6 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="main_template.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Demographics in the United States</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             
         </div>

@@ -37,9 +37,12 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -48,10 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="/user/midoripierce//proxy/absolute/8000/main_template.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Reproducibility Analysis on Adult Income in the United States" href="README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -89,25 +90,12 @@ const thebe_selector_output = ".output, .cell_output"
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="README.html">
-   Reproducibility Analysis on Adult Income in the United States
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  STAT 159 Group 23 Book
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
    Demographics in the United States
   </a>
  </li>
 </ul>
-
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -378,12 +366,14 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
 
 <span class="kn">from</span> <span class="nn">gender_functions</span> <span class="kn">import</span> <span class="n">plot_gender_eda</span>
 <span class="kn">from</span> <span class="nn">gender_functions</span> <span class="kn">import</span> <span class="n">process_df</span>
@@ -404,6 +394,136 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>fnlwgt</th>
+      <th>education</th>
+      <th>education-num</th>
+      <th>marital-status</th>
+      <th>occupation</th>
+      <th>relationship</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>capital-gain</th>
+      <th>capital-loss</th>
+      <th>hours-per-week</th>
+      <th>native country</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>39</td>
+      <td>State-gov</td>
+      <td>77516</td>
+      <td>Bachelors</td>
+      <td>13</td>
+      <td>Never-married</td>
+      <td>Adm-clerical</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>2174</td>
+      <td>0</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>50</td>
+      <td>Self-emp-not-inc</td>
+      <td>83311</td>
+      <td>Bachelors</td>
+      <td>13</td>
+      <td>Married-civ-spouse</td>
+      <td>Exec-managerial</td>
+      <td>Husband</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>38</td>
+      <td>Private</td>
+      <td>215646</td>
+      <td>HS-grad</td>
+      <td>9</td>
+      <td>Divorced</td>
+      <td>Handlers-cleaners</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53</td>
+      <td>Private</td>
+      <td>234721</td>
+      <td>11th</td>
+      <td>7</td>
+      <td>Married-civ-spouse</td>
+      <td>Handlers-cleaners</td>
+      <td>Husband</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>28</td>
+      <td>Private</td>
+      <td>338409</td>
+      <td>Bachelors</td>
+      <td>13</td>
+      <td>Married-civ-spouse</td>
+      <td>Prof-specialty</td>
+      <td>Wife</td>
+      <td>Black</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>Cuba</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="exploritory-data-analysis">
@@ -416,11 +536,36 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age               0
+workclass         0
+fnlwgt            0
+education         0
+education-num     0
+marital-status    0
+occupation        0
+relationship      0
+race              0
+sex               0
+capital-gain      0
+capital-loss      0
+hours-per-week    0
+native country    0
+label             0
+dtype: int64
+</pre></div>
+</div>
+</div>
 </div>
 <p>Since age is correlated with income, older individulas tend to have higher income due to their experience in the fields. We can see that 43.7% of our data contains Americans over 40 years old.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">40</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.437240870980621
 </pre></div>
 </div>
 </div>
@@ -432,11 +577,23 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &lt;=50K    24720
+ &gt;50K      7841
+Name: label, dtype: int64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Percent of americans making more than 50k a year</span>
 <span class="mi">7841</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2408095574460244
 </pre></div>
 </div>
 </div>
@@ -449,11 +606,23 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &lt;=50K    9216
+ &gt;50K     5021
+Name: label, dtype: int64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Percentage of American over 40 and make more than 50k a year</span>
 <span class="mi">5021</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_over40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.35267261361241836
 </pre></div>
 </div>
 </div>
@@ -469,6 +638,9 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/main_template_22_0.png" src="_images/main_template_22_0.png" />
+</div>
 </div>
 <p>We also want to explore if different races would be more likely to be in a particular occupation. There are more white people in the dataset overthrowing the proportion of the graph, making it unclear to see a trend directly from this plot.</p>
 <div class="cell docutils container">
@@ -480,6 +652,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/main_template_24_0.png" src="_images/main_template_24_0.png" />
 </div>
 </div>
 <p>We want to exclude the possible outliers in our data to obtain a more accurate analysis of demographic data points. We exclude the distribution above 99 percent quantile or below the 1  percent quantile limit. This means anyone older than 74 or younger than 17 years old will not be included in the analysis.</p>
@@ -501,6 +676,136 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>fnlwgt</th>
+      <th>education</th>
+      <th>education-num</th>
+      <th>marital-status</th>
+      <th>occupation</th>
+      <th>relationship</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>capital-gain</th>
+      <th>capital-loss</th>
+      <th>hours-per-week</th>
+      <th>native country</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>39</td>
+      <td>State-gov</td>
+      <td>77516</td>
+      <td>Bachelors</td>
+      <td>13</td>
+      <td>Never-married</td>
+      <td>Adm-clerical</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>2174</td>
+      <td>0</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>50</td>
+      <td>Self-emp-not-inc</td>
+      <td>83311</td>
+      <td>Bachelors</td>
+      <td>13</td>
+      <td>Married-civ-spouse</td>
+      <td>Exec-managerial</td>
+      <td>Husband</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>38</td>
+      <td>Private</td>
+      <td>215646</td>
+      <td>HS-grad</td>
+      <td>9</td>
+      <td>Divorced</td>
+      <td>Handlers-cleaners</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53</td>
+      <td>Private</td>
+      <td>234721</td>
+      <td>11th</td>
+      <td>7</td>
+      <td>Married-civ-spouse</td>
+      <td>Handlers-cleaners</td>
+      <td>Husband</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>28</td>
+      <td>Private</td>
+      <td>338409</td>
+      <td>Bachelors</td>
+      <td>13</td>
+      <td>Married-civ-spouse</td>
+      <td>Prof-specialty</td>
+      <td>Wife</td>
+      <td>Black</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>Cuba</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="gender-analysis">
@@ -513,6 +818,13 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Male      0.670835
+ Female    0.329165
+Name: sex, dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can see that there is about 33/66 split on gender. This is important context to plotting relationships.</p>
 <div class="cell docutils container">
@@ -520,6 +832,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_gender_eda</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/main_template_33_0.png" src="_images/main_template_33_0.png" />
+<img alt="_images/main_template_33_1.png" src="_images/main_template_33_1.png" />
+<img alt="_images/main_template_33_2.png" src="_images/main_template_33_2.png" />
+<img alt="_images/main_template_33_3.png" src="_images/main_template_33_3.png" />
 </div>
 </div>
 <p>From these plots, we can see there certain variables have more stratification on gender than others. Income, for example, shows that men are more likely to be making &gt;50k. It also shows that men are more likely to be married in this dataset. It also shows that females are more educated.</p>
@@ -546,6 +864,11 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7275392670157068
+</pre></div>
+</div>
+</div>
 </div>
 <p>The below is a visualization of the decision tree.</p>
 <div class="cell docutils container">
@@ -554,22 +877,66 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/main_template_39_0.png" src="_images/main_template_39_0.png" />
+</div>
 </div>
 <p>We can see from the decision tree that there is still a lot of impurity in each split, meaning that no single factor is helping to determine gender totally.</p>
 </div>
 <div class="section" id="income-prediction">
 <h3>Income Prediction<a class="headerlink" href="#income-prediction" title="Permalink to this headline">¶</a></h3>
 <p>The following section explores the predictive power of our features on the income variable. We are using a decision tree model, with an ensemble method for accuracy improvements.</p>
+<p>An important contextual cue for this analysis is the dataset’s income ratio of: over 50k and less than (or equal to) 50k</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &lt;=50K    0.755506
+ &gt;50K     0.244494
+Name: label, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see, there is a roughly, 24:76 split.</p>
+<p>After doing some pre-processing. Including the creation of dummy-variables for all qualitative predictors in the dataset. Five different decision tree models were applied to the dataset to predict income. These models include a naïve, <em>“CART”</em>, decision tree; a bagged decision tree; a bagged decision tree with support-vector-machine feature selection; a bagged decision tree with symmetric-uncertainty feature selection; and, a bagged decision tree with principal component analysis feature selection. These model types vary in complexity, but, a best model could be selected out of them all by using 10-fold cross validation. Please refer to <em>income.ipynb</em> for compuatations involved in these steps.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;figures/accuracy_barchart.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/main_template_47_0.png" src="_images/main_template_47_0.png" />
+</div>
+</div>
+<p>As seen by this barchart- after creating the five, decision tree models. Although only slightly, the best performer- which obtains the highest, 10-fold, cross-validation accuracy. Is the decision tree, with bagging, and support vector machine feature selection. More specifically, its accuracy tends closely towards 85%.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;figures/income_tree.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/main_template_49_0.png" src="_images/main_template_49_0.png" />
+</div>
+</div>
+<p>As seen by the above figure, this is what the best model for income prediction looks like. Again, this is the <em>bagged decision tree with support-vector-machine feature selection</em>. Also, please refer to <em>income.ipynb</em> for compuatations involved in these steps.</p>
 </div>
 <div class="section" id="results-and-limitations">
 <h3>Results and Limitations<a class="headerlink" href="#results-and-limitations" title="Permalink to this headline">¶</a></h3>
-<p>blah blah</p>
+<p>From the gender exploration, we can’t conclude too much predictive nature of the features in our dataset. The accuracy of the model was not impressive, and furthermore we can’t assume it was splitting on anything truly predictive. In general however, there is generally a inequal representation of women in many different factors, such as the income gap. Additionally, our dataset may have been an unreliable source in some ways because of the unequal representation of gender in the data.</p>
+<p>Overall, with gender, there is data suggesting women may be more educated than men in general, yes overall are less likely to make money.</p>
+<p>Now, moving along to our analysis of <em>incomes</em> we have conclude the following. As seen the anaylsis, the best decision tree model is definitely the <em>bagged decision tree with support-vector-machine feature selection</em>. It gives a roughly, 85% accuracy- which in many cases is truly desirable. Nevertheless, despite this accuracy being quite high- it is not great given that the categorical response variable for <em>income</em> is split 76:24. As a result, we have to conclude that decision tree modelling has not been impressive in predicting income levels using the <em>Census Bureau</em> data. At most, it does a <strong>slightly better</strong> job than prediciting everybody will have a less than 50 thousand dollar income. Perhaps a new dataset, or other modelling method may be more insightful.</p>
 </div>
 <div class="section" id="author-contributions">
 <h3>Author Contributions<a class="headerlink" href="#author-contributions" title="Permalink to this headline">¶</a></h3>
-<p>Midori</p>
-<p>Samantha</p>
-<p>Noam</p>
+<p>Midori - I created the EDA section before the gender analysis section. I helped with structuring the README file and with making the Jupyter Book.</p>
+<p>Samantha - I helped the team create template files for the EDA and Main ipynb files. I completed the gender exploration section, along with the gender_functions package folder and function tests. Helped write the narrative on the main ipynb file. Helped team with git workflow.</p>
+<p>Noam - I contributed to the: income decision tree analyses and corresponding write-up, Makefile, environment, readme, jupyter book, and group- Zoom and Slack- discussions.</p>
 </div>
 </div>
 </div>
@@ -598,14 +965,7 @@ const thebe_selector_output = ".output, .cell_output"
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Reproducibility Analysis on Adult Income in the United States</p>
-        </div>
-    </a>
+<div class='prev-next-area'>
 </div>
             
         </div>
