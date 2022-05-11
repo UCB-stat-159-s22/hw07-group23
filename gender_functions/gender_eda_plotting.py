@@ -1,8 +1,25 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-
+"""
+plotting function for all the gender exploration plots
+plots sex by income, education, marital status, and workclass
+"""
 def plot_gender_eda(df):
+	"""
+	input: df = dataframe 
+	output: 4 plots that also save as figures into figures/ folder
+	columns should include: label, education, marital-status, workclass, and sex
+	"""
+	if 'label' not in df.columns:
+		return 'missing column'
+	if 'marital-status' not in df.columns:
+		return 'missing column'
+	if 'education' not in df.columns:
+		return 'missing column'
+	if 'workclass' not in df.columns:
+		return 'missing column'
+	
 	plot1 = df.groupby(['label'])['sex'].value_counts().unstack(fill_value=0).plot.bar()
 	fig1 = plot1.get_figure()
 	fig1.savefig("figures/gender_plot1.png")
