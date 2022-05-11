@@ -373,6 +373,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
 
 <span class="kn">from</span> <span class="nn">gender_functions</span> <span class="kn">import</span> <span class="n">plot_gender_eda</span>
 <span class="kn">from</span> <span class="nn">gender_functions</span> <span class="kn">import</span> <span class="n">process_df</span>
@@ -904,8 +905,7 @@ Name: label, dtype: float64
 <p>After doing some pre-processing. Including the creation of dummy-variables for all qualitative predictors in the dataset. Five different decision tree models were applied to the dataset to predict income. These models include a naïve, <em>“CART”</em>, decision tree; a bagged decision tree; a bagged decision tree with support-vector-machine feature selection; a bagged decision tree with symmetric-uncertainty feature selection; and, a bagged decision tree with principal component analysis feature selection. These model types vary in complexity, but, a best model could be selected out of them all by using 10-fold cross validation. Please refer to <em>income.ipynb</em> for compuatations involved in these steps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;figures/accuracy_barchart.png&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;figures/accuracy_barchart.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
