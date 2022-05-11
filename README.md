@@ -10,4 +10,6 @@ Our exploration and analysis focused on discovering different relationships amon
 Use the binder link provided or clone the repository to run locally to run this notebook. A list of makefile instructions is provided below: 
 
 ### Makefile Commands
+- `all`: Runs all .ipynb notebooks.
 - `clean`: Removes all figures from the /output directory
+- `env`: Creates the environment with all necessary libraries.
