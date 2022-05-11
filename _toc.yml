@@ -6,4 +6,4 @@ root: README
 parts:
 - caption: STAT 159 Group 23 Book
   chapters:
-  - file: index
+  - file: main_template
