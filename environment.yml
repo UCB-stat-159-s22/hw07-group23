@@ -1,11 +1,11 @@
-name: hw07-group23
 
+name: hw7
 dependencies:
   - python
-  - decorator
   - ipykernel
   - numpy
   - scipy
   - matplotlib
   - pytest 
   - seaborn
+  - sklearn
