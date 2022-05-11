@@ -2,8 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: main_template.ipynb
+root: main.ipynb
 parts:
 - caption: STAT 159 Group 23 Book
   chapters:
-  - file: main_template
+  - file: main
